@@ -1,0 +1,49 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Purchase Report</title>
+<link type="text/css"
+		  rel="stylesheet"
+		  href="${pageContext.request.contextPath}/resources/css/style.css" />
+</head>
+<body>
+	<th:block th:include="/headerfooter/_header"></th:block>
+	<br>
+	<div id="container">
+	
+		<div id="content">
+			<form action="#" th:action="@{/admin/searchByCategory}" method="POST">							
+				<input type="text" name="categoryName"/>						
+				<button type="submit" class="add-button">Search By Category</button>
+			</form>
+			
+			<form action="#" th:action="@{/admin/searchByDate}" method="POST">							
+				<input type="date" name="searchDate" placeholder="mm-dd-yyyy" value="" required/>						
+				<button type="submit" class="add-button">Search By Date</button>
+			</form>
+			
+			<table>
+				<thead>
+					<tr>
+						<th>Product Name</th>
+						<th>Category</th>
+						<th>Purchase Date</th>
+						<th>User  Name</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="orderIter : ${orderdetail}">
+						<td th:text="${orderIter.productName}"/>
+						<td th:text="${orderIter.category}"/>	
+						<td th:text="${orderIter.purchaseDate}"/>
+						<td th:text="${orderIter.userName}"/>												
+					</tr>		
+				</tbody>
+			</table>
+		</div>
+	
+	</div>
+</body>
+</html>

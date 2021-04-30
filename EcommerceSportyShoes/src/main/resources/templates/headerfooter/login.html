@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <meta charset="UTF-8">
+      <title>Books Shop Online</title>
+      <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+   </head>
+   <body>
+   <div id="header">
+		<h2>Sporty shoes</h2>
+	</div>
+	<div>
+	</div>
+   Please login..
+     <form th:action="@{/dologin}" method="POST">
+		
+		<div th:if="${param.error}" class="error-message">	
+			Invalid Username or Password
+		</div>
+		<div th:if="${param.logout}" class="error-message">	
+			Logged out successfully
+		</div>
+		
+		  <div>
+		    <label>Enter user ID</label>
+		    <input type="text" name="username" id="username">
+		 
+		  </div>
+		  <div>
+		    <label>Password</label>
+		    <input type="password" name="password" id="password">
+		  </div>
+		  
+		  <div>
+		  	<button type="submit">Log in</button>
+		  </div>
+		</form>  
+   </body>
+</html>

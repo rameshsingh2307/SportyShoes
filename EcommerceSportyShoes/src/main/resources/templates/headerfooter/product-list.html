@@ -1,0 +1,54 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Product List</title>
+<link type="text/css"
+		  rel="stylesheet"
+		  href="${pageContext.request.contextPath}/resources/css/style.css" />
+</head>
+<body>
+	<th:block th:include="/headerfooter/_header"></th:block>
+	<br>
+	<div id="container">
+	
+		<div id="content">
+			
+			<table>
+				<thead>
+					<tr>
+						<th>Product Name</th>
+						<th>Product Category</th>						
+						<th>Update</th>
+						<th>Delete</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="productIter : ${product}">
+						<td th:text="${productIter.productName}"/>
+						<td th:text="${productIter.productCategory}"/>
+						<td>
+							<form action="#" th:action="@{/admin/update}" method="POST">
+							
+								<input type="hidden" name="productId" th:value="${productIter.productId}" />						
+								<button type="submit" class="add-button">Update</button>
+		
+							</form>
+						</td>
+						<td>
+							<form action="#" th:action="@{/admin/delete}" method="POST">
+							
+								<input type="hidden" name="productId" th:value="${productIter.productId}" />						
+								<button type="submit" class="add-button">Delete</button>
+		
+							</form>
+						</td>							
+					</tr>		
+				</tbody>
+			</table>
+		</div>
+	
+	</div>
+</body>
+</html>

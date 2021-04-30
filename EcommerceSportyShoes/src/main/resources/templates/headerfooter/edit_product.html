@@ -1,0 +1,40 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Edit/delete shoes</title>
+<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/css/add-customer-style.css}" />
+</head>
+<body>
+<th:block th:include="/headerfooter/_header"></th:block>
+<br>
+
+<div id ="container">
+	<h3>Update customer</h3>
+	<p/>	
+		<form action="#" th:action="@{/admin/UpdateProduct}" th:object="${product}" method="POST">
+
+<table>
+	<tbody>
+		<input type="hidden" th:field="*{productId}">
+		<tr>
+			<td><label>Enter product Name</label></td>
+			<td><input type="text" th:field="*{productName}" required></td>
+		</tr>
+		<tr>
+			<td><label>Product Category</label></td>						
+			<td><input type="text" th:field="*{productCategory}" required></td>
+		</tr>
+		<tr>
+			<td><label></label></td>
+			<td><input type="submit" value="Save" class="add-button"/></td>
+		</tr>
+	</tbody>
+	</table>
+</form>
+
+</div>
+</body>
+</html>

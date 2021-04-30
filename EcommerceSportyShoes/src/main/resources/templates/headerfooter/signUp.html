@@ -1,0 +1,41 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Sign Up</title>
+<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+</head>
+<body>
+
+<div id="wrapper">
+	<div id="header">
+		<h2>Sporty shoes</h2>
+	</div>
+</div>
+
+<div id ="container">
+	<h3>Enter customer details</h3>
+	<p/>		
+		<form action="#" th:action="@{/Home}" th:object="${customer}" method="POST">
+			
+			<table>
+				<tbody>
+					<tr>
+						<td><label>Enter first Name</label></td>
+						<td><input type="text" th:field="*{firstName}" required></td>					
+					</tr>
+					<tr>
+						<td><label>Last Name</label></td>						
+						<td><input type="text" th:field="*{lastName}" required></td>						
+					</tr>					
+					<tr>
+						<td><label></label></td>
+						<td><input type="submit" value="Sign up" class="add-button"/></td>
+					</tr>
+				</tbody>
+				</table>
+		</form>				
+</div>
+</body>
+</html>
